@@ -30,12 +30,11 @@ export default {
         {
           text: 'ID',
           align: 'start',
-          sortable: false,
           value: 'ID',
         },
         {text: 'Telegram ID', value: 'TelegramId'},
         {text: 'Логин', value: 'Username'},
-        {text: 'Имя', value: 'Name'},
+        {text: 'Имя', value: 'Name', width: 200},
         {text: 'Фамилия', value: 'Lastname'},
         {text: 'Дата регистрации', value: 'CreatedAt'},
         {text: 'Оплаченный', value: 'IsPaid'},
