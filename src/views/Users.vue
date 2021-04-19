@@ -16,6 +16,12 @@
           {{ item.IsPaid  ? "да" : "нет" }}
         </v-chip>
       </template>
+      <template v-slot:item.CreatedAt="{ item }">
+        {{reformatData(item.CreatedAt)}}
+      </template>
+      <template v-slot:item.PaidUntil="{ item }">
+        {{reformatData(item.PaidUntil)}}
+      </template>
     </v-data-table>
   </v-card>
 </template>
@@ -53,14 +59,7 @@ export default {
   mounted: function () {
     this.loading = true
     this.$axios.get('/users')
-        .then(({data}) => {
-          console.log(data)
-          this.usersData = data.map((user) => ({
-            ...user,
-            PaidUntil: this.reformatData(user.PaidUntil),
-            CreatedAt: this.reformatData(user.CreatedAt),
-          }))
-        })
+        .then(({data}) => this.usersData = data)
         .catch(function (error) {
           console.log(error)
         })
