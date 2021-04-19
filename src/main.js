@@ -8,7 +8,7 @@ const instance = require('axios').default
 const axios = instance.create({
   baseURL: `${
       process.env.NODE_ENV === "production"
-          ? "https://vn346.net:3000"
+          ? "http://vn346.net:3000"
           : "http://localhost:3000"
   }/api`,
 });
