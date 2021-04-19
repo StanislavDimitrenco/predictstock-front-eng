@@ -21,7 +21,7 @@
 </template>
 
 <script>
-const axios = require('axios')
+
 export default {
   name: 'Users',
   data() {
@@ -53,7 +53,7 @@ export default {
   },
   mounted: function () {
     this.loading = true
-    axios.get('http://localhost:3000/api/users')
+    this.$axios.get('/users')
         .then(({data}) => {
           console.log(data)
           this.usersData = data.map((user) => ({
