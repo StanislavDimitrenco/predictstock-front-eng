@@ -11,7 +11,11 @@
                   'items-per-page-options': [15, 30, 50, 100]}"
                   multi-sort
     >
-      <template v-slot:item.IsPaid="{ item }">
+
+        <template v-slot:item.Username=" { item }">
+          {{ item.Username }}
+         </template>
+        <template v-slot:item.IsPaid="{ item }">
         <v-chip :color="item.IsPaid ? 'success' : 'error'">
           {{ item.IsPaid  ? "да" : "нет" }}
         </v-chip>
@@ -21,6 +25,11 @@
       </template>
       <template v-slot:item.PaidUntil="{ item }">
         {{reformatData(item.PaidUntil)}}
+      </template>
+      <template v-slot:item.actions=" { item }">
+        <v-btn icon color="primary" :to="{name: 'User', params: {id: item.ID}}" >
+            <v-icon>mdi-page-next</v-icon>
+          </v-btn>
       </template>
     </v-data-table>
   </v-card>
@@ -45,6 +54,7 @@ export default {
         {text: 'Дата регистрации', value: 'CreatedAt'},
         {text: 'Оплаченный', value: 'IsPaid'},
         {text: 'Оплачен до', value: 'PaidUntil'},
+        {text: 'actions', value: 'actions'},
 
       ],
       usersData: [],
