@@ -21,8 +21,6 @@
           <template v-slot:item.CreatedAt="{ item }">
             {{ reformatData(item.CreatedAt) }}
           </template>
-
-
         </v-data-table>
       </v-card>
     </div>
